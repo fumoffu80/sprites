@@ -1,0 +1,16 @@
+name: Sync Sprites Fork
+on:
+  schedule:
+    - cron: '0 0 * * *' # Mise à jour quotidienne
+  workflow_dispatch:    # Pour déclencher manuellement
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync Fork
+        uses: XueMoMo/Sync-Fork-action@v1.0.6
+        with:
+          upstream_repository: 'PokeAPI/sprites'
+          upstream_branch: 'master' 
+          target_branch: 'master'
